@@ -27,7 +27,6 @@ export const Calculator = ( ) => {
              </form>
              <div className="buttons">
                 {
-                    
                     //With the 'map' loop we can read the data stored inside the 'buttons' array,
                     // and then show it inside our 'input'
                    buttons.map( button =>{
@@ -37,9 +36,9 @@ export const Calculator = ( ) => {
                               //Pass the value of 'button' to be stored in both the 'value' property and the 'key' property
                               value= { button }
                               key= { button }
-                                >
-                                    {/* render the button */}
-                                    { button } 
+                            >
+                              {/* render the button */}
+                              { button } 
                             </button>          
                     })
                 }
@@ -61,10 +60,11 @@ export const Calculator = ( ) => {
                   creating the output needed */}
                 <button
                     className="equal"
-                    onClick={(e) => {
+                    onClick={() => {
                         setInputValue(
-                         String(eval(inputValue)) 
+                            eval(String(inputValue)) 
                         );
+                            console.log(inputValue);
                     }}
                     value="="
                 >
