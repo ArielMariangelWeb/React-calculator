@@ -62,7 +62,7 @@ export const Calculator = ( ) => {
                     className="equal"
                     onClick={() => {
                         setInputValue(
-                            eval(String(inputValue)) 
+                            eval((inputValue)) 
                         );
                             console.log(inputValue);
                     }}
