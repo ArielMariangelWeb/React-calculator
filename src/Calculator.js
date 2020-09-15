@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-export const Calculator = ( ) => {
+export const Calculator = ( {initialValue} ) => {
 
     //Create the hook useState
-    const [inputValue, setInputValue] = useState([]);
+    const [inputValue, setInputValue] = useState(initialValue);
 
     //Create the calculator buttons in an array
     const buttons = ["+", "-", "*", "/",1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "." ]
@@ -11,7 +11,11 @@ export const Calculator = ( ) => {
     //Function that captures the 'value' property of each button, and at the same time,
     //updates the 'inputValue' property of our hook through 'setInputValue'
     const handleButtonPress= ( e ) =>{
-        setInputValue( [ inputValue + e.target.value ] )
+        if (inputValue =='0') {
+            setInputValue([e.target.value])
+        }else{
+            setInputValue( [ inputValue + e.target.value ] )
+        }
     }
 
     return (
